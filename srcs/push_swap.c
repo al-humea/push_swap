@@ -70,7 +70,6 @@ int	main(int ac, char **av)
 	t_stack	*b;
 
 	a = NULL;
-	b = NULL;
 	(void)b;
 	if (ac < 2)
 		display_error();
