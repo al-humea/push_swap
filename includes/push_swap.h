@@ -18,8 +18,8 @@
 
 typedef struct s_stack
 {
-	int		nbr;
-	void	*next_elem;
+	int				nbr;
+	struct s_stack	*next;
 }	t_stack;
 
 /*While testing*/
@@ -29,4 +29,8 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		display_error(void);
 
+/*Basics*/
+void		sa(t_stack *a);
+void		sb(t_stack *b);
+void		ss(t_stack *a, t_stack *b);
 #endif

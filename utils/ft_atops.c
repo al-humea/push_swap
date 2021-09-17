@@ -6,7 +6,7 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 10:56:06 by al-humea          #+#    #+#             */
-/*   Updated: 2021/09/16 21:53:00 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/09/17 14:10:14 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ long int	ft_atops(const char *str)
 	int			mlt;
 	long int	nbr;
 
+	if (!str[0])
+		display_error();
 	i = 0;
 	mlt = 1;
 	nbr = 0;
@@ -33,9 +35,7 @@ long int	ft_atops(const char *str)
 		i++;
 	}
 	nbr *= mlt;
-	if (str[i] != 0)
-		display_error();
-	if (nbr > 2147483647 || nbr < -2147483648)
+	if (str[i] != 0 || nbr > 2147483647 || nbr < -2147483648)
 		display_error();
 	return (nbr);
 }

@@ -12,17 +12,50 @@
 
 #include "../../includes/push_swap.h"
 
-void	sa(t_stack *a, t_stack *b)
+void	sa(t_stack *a)
 {
-	void *tmp;
+	int	save;
+
+	save = 0;
+	if (a->next)
+	{
+		save = a->next->nbr;
+		a->next->nbr = a->nbr;
+		a->nbr = save;
+		ft_putstr_fd("sa\n", 1);
+	}
 }
 
-void	sb(t_stack *a, t_stack *b)
+void	sb(t_stack *b)
 {
-	void *tmp;
+	int	save;
+
+	save = 0;
+	if (b->next)
+	{
+		save = b->next->nbr;
+		b->next->nbr = b->nbr;
+		b->nbr = save;
+		ft_putstr_fd("sb\n", 1);
+	}
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
-	void *tmp;
+	int	save;
+
+	save = 0;
+	if (a->next)
+	{
+		save = a->next->nbr;
+		a->next->nbr = a->nbr;
+		a->nbr = save;
+	}
+	if (b->next)
+	{
+		save = b->next->nbr;
+		b->next->nbr = b->nbr;
+		b->nbr = save;
+	}
+	ft_putstr_fd("ss\n", 1);
 }

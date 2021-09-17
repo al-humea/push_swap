@@ -12,6 +12,16 @@
 
 #include "../includes/push_swap.h"
 
+void	disp_stack(t_stack *stack)
+{
+	ft_putstr_fd("stack:\n", 1);
+	while (stack)
+	{
+		printf("%d\n", stack->nbr);
+		stack = stack->next;
+	}
+}
+
 /*Checks for duplicates in the numbers given*/
 void	duplicates(t_stack	*stack)
 {
@@ -21,7 +31,7 @@ void	duplicates(t_stack	*stack)
 	cur = stack;
 	while (cur)
 	{
-		cmp = cur->next_elem;
+		cmp = cur->next;
 		while (cmp)
 		{
 			if (cmp->nbr == cur->nbr)
@@ -30,9 +40,9 @@ void	duplicates(t_stack	*stack)
 				printf("dup=%d\n", cur->nbr);
 				display_error();
 			}
-			cmp = cmp->next_elem;
+			cmp = cmp->next;
 		}
-		cur = cur->next_elem;
+		cur = cur->next;
 	}
 	return ;
 }
@@ -53,14 +63,14 @@ t_stack	*valid_av(int ac, char **av)
 	i++;
 	while (i <= (ac - 1))
 	{
-		cur_a->next_elem = malloc(sizeof(t_stack));
-		if (!cur_a->next_elem)
+		cur_a->next = malloc(sizeof(t_stack));
+		if (!cur_a->next)
 			exit(EXIT_FAILURE);
-		cur_a = cur_a->next_elem;
+		cur_a = cur_a->next;
 		cur_a->nbr = (int)ft_atops(av[i]);
 		i++;
 	}
-	cur_a->next_elem = NULL;
+	cur_a->next = NULL;
 	return (a);
 }
 
@@ -77,5 +87,7 @@ int	main(int ac, char **av)
 	if (a == NULL)
 		display_error();
 	duplicates(a);
+	sa(a);
+	disp_stack(a);
 	return (0);
 }
