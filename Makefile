@@ -20,6 +20,7 @@ UTILS=		./utils/display_error.c\
 			./utils/ft_putchar_fd.c\
 
 SRC=		./srcs/push_swap.c\
+			./srcs/sort.c\
 			./srcs/basics/swap.c\
 			./srcs/basics/rotate.c\
 			./srcs/basics/r_rotate.c\

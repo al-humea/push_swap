@@ -12,15 +12,32 @@
 
 #include "../includes/push_swap.h"
 
+void	free_stack(t_stack *stack)
+{
+	t_stack	*save;
+
+	while (stack)
+	{
+		save = stack;
+		stack = stack->next;
+		free(save);
+		save = NULL;
+	}
+	return ;
+}
+
 /*USEFUL STACK DISPLAY*/
 void	disp_stack(t_stack **stack)
 {
-	int	i;
-	char array[3]={'a', 'b', 'c'};
+	int		i;
+	char	array[3];
 	t_stack	*head;
 
+	array[0] = 'a';
+	array[1] = 'b';
+	array[2] = 'c';
 	i = 0;
-	while (stack[i])
+	while (i < 2)
 	{
 		head = stack[i];
 		printf("stack[%c] :\n", array[i]);
@@ -47,7 +64,6 @@ void	duplicates(t_stack	*stack)
 		{
 			if (cmp->nbr == cur->nbr)
 			{
-				/*A RETIRER PRINTF*/
 				printf("dup=%d\n", cur->nbr);
 				display_error();
 			}
@@ -85,6 +101,7 @@ t_stack	*valid_av(int ac, char **av)
 	return (a);
 }
 
+/*I NEED TO FREE MY DATA STRUCTURES DONT FORGET*/
 int	main(int ac, char **av)
 {
 	t_stack	**stacks;
@@ -99,7 +116,8 @@ int	main(int ac, char **av)
 	stacks[1] = NULL;
 	stacks[2] = NULL;
 	duplicates(stacks[0]);
-	ra(stacks);
-	disp_stack(stacks);
+	sort(stacks);
+	free_stack(stacks[0]);
+	free(stacks);
 	return (0);
 }

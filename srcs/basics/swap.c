@@ -14,7 +14,7 @@
 
 void	sa(t_stack **stacks)
 {
-	t_stack *head;
+	t_stack	*head;
 
 	head = NULL;
 	if (stacks[0] && stacks[0]->next)
@@ -30,7 +30,7 @@ void	sa(t_stack **stacks)
 
 void	sb(t_stack **stacks)
 {
-	t_stack *head;
+	t_stack	*head;
 
 	head = NULL;
 	if (stacks[1] && stacks[1]->next)
@@ -46,7 +46,7 @@ void	sb(t_stack **stacks)
 
 void	ss(t_stack **stacks)
 {
-	t_stack *head;
+	t_stack	*head;
 
 	head = NULL;
 	if (stacks[0] && stacks[0]->next)

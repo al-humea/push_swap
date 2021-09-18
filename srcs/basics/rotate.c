@@ -23,7 +23,7 @@ void	ra(t_stack **stacks)
 	{
 		save = stacks[0]->next;
 		head = stacks[0];
-		while(head->next)
+		while (head->next)
 			head = head->next;
 		stacks[0]->next = NULL;
 		head->next = stacks[0];
@@ -44,7 +44,7 @@ void	rb(t_stack **stacks)
 	{
 		save = stacks[1]->next;
 		head = stacks[1];
-		while(head->next)
+		while (head->next)
 			head = head->next;
 		stacks[1]->next = NULL;
 		head->next = stacks[1];
@@ -63,7 +63,7 @@ void	rr(t_stack **stacks)
 	{
 		save = stacks[0]->next;
 		head = stacks[0];
-		while(head->next)
+		while (head->next)
 			head = head->next;
 		stacks[0]->next = NULL;
 		head->next = stacks[0];
@@ -73,12 +73,11 @@ void	rr(t_stack **stacks)
 	{
 		save = stacks[1]->next;
 		head = stacks[1];
-		while(head->next)
+		while (head->next)
 			head = head->next;
 		stacks[1]->next = NULL;
 		head->next = stacks[1];
 		stacks[1] = save;
 	}
 	ft_putstr_fd("rr\n", 1);
-	return ;
 }
