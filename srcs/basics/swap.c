@@ -12,50 +12,57 @@
 
 #include "../../includes/push_swap.h"
 
-void	sa(t_stack *a)
+void	sa(t_stack **stacks)
 {
-	int	save;
+	t_stack *head;
 
-	save = 0;
-	if (a->next)
+	head = NULL;
+	if (stacks[0] && stacks[0]->next)
 	{
-		save = a->next->nbr;
-		a->next->nbr = a->nbr;
-		a->nbr = save;
-		ft_putstr_fd("sa\n", 1);
+		head = stacks[0]->next;
+		stacks[0]->next = stacks[0]->next->next;
+		head->next = stacks[0];
+		stacks[0] = head;
 	}
+	ft_putstr_fd("sa\n", 1);
+	return ;
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack **stacks)
 {
-	int	save;
+	t_stack *head;
 
-	save = 0;
-	if (b->next)
+	head = NULL;
+	if (stacks[1] && stacks[1]->next)
 	{
-		save = b->next->nbr;
-		b->next->nbr = b->nbr;
-		b->nbr = save;
-		ft_putstr_fd("sb\n", 1);
+		head = stacks[1]->next;
+		stacks[1]->next = stacks[1]->next->next;
+		head->next = stacks[1];
+		stacks[1] = head;
 	}
+	ft_putstr_fd("sb\n", 1);
+	return ;
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack **stacks)
 {
-	int	save;
+	t_stack *head;
 
-	save = 0;
-	if (a->next)
+	head = NULL;
+	if (stacks[0] && stacks[0]->next)
 	{
-		save = a->next->nbr;
-		a->next->nbr = a->nbr;
-		a->nbr = save;
+		head = stacks[0]->next;
+		stacks[0]->next = stacks[0]->next->next;
+		head->next = stacks[0];
+		stacks[0] = head;
 	}
-	if (b->next)
+	if (stacks[1] && stacks[1]->next)
 	{
-		save = b->next->nbr;
-		b->next->nbr = b->nbr;
-		b->nbr = save;
+		head = stacks[1]->next;
+		stacks[1]->next = stacks[1]->next->next;
+		head->next = stacks[1];
+		stacks[1] = head;
 	}
 	ft_putstr_fd("ss\n", 1);
+	return ;
 }

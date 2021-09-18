@@ -12,13 +12,24 @@
 
 #include "../includes/push_swap.h"
 
-void	disp_stack(t_stack *stack)
+/*USEFUL STACK DISPLAY*/
+void	disp_stack(t_stack **stack)
 {
-	ft_putstr_fd("stack:\n", 1);
-	while (stack)
+	int	i;
+	char array[3]={'a', 'b', 'c'};
+	t_stack	*head;
+
+	i = 0;
+	while (stack[i])
 	{
-		printf("%d\n", stack->nbr);
-		stack = stack->next;
+		head = stack[i];
+		printf("stack[%c] :\n", array[i]);
+		while (head)
+		{
+			printf("%d\n", head->nbr);
+			head = head->next;
+		}
+		i++;
 	}
 }
 
@@ -76,18 +87,19 @@ t_stack	*valid_av(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	**stacks;
 
-	a = NULL;
-	(void)b;
+	stacks = NULL;
 	if (ac < 2)
 		display_error();
-	a = valid_av(ac, av);
-	if (a == NULL)
+	stacks = malloc(sizeof(void *) * 3);
+	if (stacks == NULL)
 		display_error();
-	duplicates(a);
-	sa(a);
-	disp_stack(a);
+	stacks[0] = valid_av(ac, av);
+	stacks[1] = NULL;
+	stacks[2] = NULL;
+	duplicates(stacks[0]);
+	ra(stacks);
+	disp_stack(stacks);
 	return (0);
 }

@@ -30,7 +30,12 @@ void		ft_putstr_fd(char *s, int fd);
 void		display_error(void);
 
 /*Basics*/
-void		sa(t_stack *a);
-void		sb(t_stack *b);
-void		ss(t_stack *a, t_stack *b);
+void		sa(t_stack **stacks);
+void		sb(t_stack **stacks);
+void		ss(t_stack **stacks);
+void		ra(t_stack **stacks);
+void		rb(t_stack **stacks);
+void		rr(t_stack **stacks);
+void		rra(t_stack **stacks);
+
 #endif
