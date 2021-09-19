@@ -116,8 +116,10 @@ int	main(int ac, char **av)
 	stacks[1] = NULL;
 	stacks[2] = NULL;
 	duplicates(stacks[0]);
-	sort(stacks);
+	sort(stacks, ac - 1);
+	disp_stack(stacks);
 	free_stack(stacks[0]);
+	free_stack(stacks[1]);
 	free(stacks);
 	return (0);
 }

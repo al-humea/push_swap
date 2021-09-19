@@ -23,6 +23,8 @@ typedef struct s_stack
 }	t_stack;
 
 /*While testing*/
+void		disp_stack(t_stack **stack);
+
 /*Utils*/
 long int	ft_atops(const char *str);
 void		ft_putchar_fd(char c, int fd);
@@ -43,5 +45,5 @@ void		pa(t_stack **stacks);
 void		pb(t_stack **stacks);
 
 /*Algo*/
-void		sort(t_stack **stacks);
+void		sort(t_stack **stacks, int nbr);
 #endif
