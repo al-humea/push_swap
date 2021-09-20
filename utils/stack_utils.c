@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atops.c                                         :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/29 10:56:06 by al-humea          #+#    #+#             */
-/*   Updated: 2021/09/20 18:20:55 by al-humea         ###   ########.fr       */
+/*   Created: 2021/09/20 11:07:25 by al-humea          #+#    #+#             */
+/*   Updated: 2021/09/20 18:20:56 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long int	ft_atops(const char *str)
+int	stackmin(t_stack *stack)
 {
-	int			i;
-	int			mlt;
-	long int	nbr;
+	int min;
 
-	if (!str[0])
-		display_error();
-	i = 0;
-	mlt = 1;
-	nbr = 0;
-	while (str[i] == '+' || str[i] == '-')
+	min = stack->nbr;
+	while (stack)
 	{
-		if (str[i] == '-')
-			mlt *= -1;
-		i++;
+		if (stack->nbr < min)
+			min = stack->nbr;
+		stack = stack->next;
 	}
-	while (str[i] <= '9' && str[i] >= '0')
-	{
-		nbr = (nbr * 10) + (str[i] - 48);
-		i++;
-	}
-	nbr *= mlt;
-	if (str[i] != 0 || nbr > 2147483647 || nbr < -2147483648)
-		display_error();
-	return (nbr);
+	return (min);
 }

@@ -6,43 +6,73 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 19:16:01 by al-humea          #+#    #+#             */
-/*   Updated: 2021/09/19 21:02:16 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/09/20 18:20:58 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	median(t_stack **stack, nbr)
+void		divide(t_stack **stacks, int med, int nb)
 {
-	int i;
-	int lowest_nbr;
-	t_stack	*save;
+	int	i;
 
 	i = 0;
-	save = stack[0];
-	lowest_nbr = stack[0]->nbr;
-	stack[0] = save;/**/
-	while (stack[0])
+	while (i <= (nb / 2))
 	{
-		if (stack[0]->nbr < lowest_nbr)
-			lowest_nbr = stack[0]->nbr;
-		stack[0] = stack[0]->next;
+		if (stacks[0]->nbr <= med)
+		{
+			pb(stacks);
+			i++;
+			continue ;
+		}
+		ra(stacks);
 	}
 }
 
-void	divide(t_stack **stacks, int nbr)
+long int	median(t_stack **stacks, int nbr)
 {
-	int med;
-	med = median(stack, nbr);
-}
+	int			i;
+	long int	lw_nbr, lst_nbr;
+	t_stack		*save;
 
+	i = 0;
+	lw_nbr = stacks[0]->nbr;
+	lst_nbr = -2147483648;
+	save = stacks[0];
+	while (i <= (nbr / 2))
+	{
+		while (stacks[0])
+		{
+			if (stacks[0]->nbr < lw_nbr && stacks[0]->nbr > lst_nbr)
+				lw_nbr = stacks[0]->nbr;
+			stacks[0] = stacks[0]->next;
+		}
+		lst_nbr = lw_nbr;
+		lw_nbr = 2147483649;
+		stacks[0] = save;
+		i++;
+	}
+	return (lst_nbr);
+}
+/*
+** Searches for the median,
+** Puts everything beneath median on B stack
+** Bubble sorts in ascending order A stack
+** Bubble sorts in descendiing order B stack
+** Join stacks
+*/
 void	sort(t_stack **stacks, int nbr)
 {
+	long int	med;
+
 	if (nbr > 3)
 	{
-		divide(stacks, nbr);
-		bubble_sort(stacks);
-		conquer(stacks);
+		med = median(stacks, nbr);
+		divide(stacks, med, nbr);
+		printf("median=%d\n", (int)med);
+		bubble_sort(stacks, med);
+		/*
+		conquer(stacks);*/
 	}
 	if (nbr == 2 && stacks[0]->nbr > stacks[0]->next->nbr)
 		sa(stacks);

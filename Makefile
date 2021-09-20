@@ -18,9 +18,11 @@ UTILS=		./utils/display_error.c\
 			./utils/ft_atops.c\
 			./utils/ft_putstr_fd.c\
 			./utils/ft_putchar_fd.c\
+			./utils/stack_utils.c\
 
 SRC=		./srcs/push_swap.c\
 			./srcs/sort.c\
+			./srcs/bubble.c\
 			./srcs/basics/swap.c\
 			./srcs/basics/rotate.c\
 			./srcs/basics/r_rotate.c\

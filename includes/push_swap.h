@@ -30,6 +30,7 @@ long int	ft_atops(const char *str);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		display_error(void);
+int			stackmin(t_stack *stack);
 
 /*Basics*/
 void		sa(t_stack **stacks);
@@ -45,5 +46,6 @@ void		pa(t_stack **stacks);
 void		pb(t_stack **stacks);
 
 /*Algo*/
+void		bubble_sort(t_stack **stacks, int med);
 void		sort(t_stack **stacks, int nbr);
 #endif

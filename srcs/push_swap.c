@@ -40,12 +40,14 @@ void	disp_stack(t_stack **stack)
 	while (i < 2)
 	{
 		head = stack[i];
+		ft_putstr_fd("_________________\n", 1);
 		printf("stack[%c] :\n", array[i]);
 		while (head)
 		{
 			printf("%d\n", head->nbr);
 			head = head->next;
 		}
+		ft_putstr_fd("_________________\n", 1);
 		i++;
 	}
 }
