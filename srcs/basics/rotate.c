@@ -27,6 +27,7 @@ void	ra(t_stack **stacks)
 			head = head->next;
 		stacks[0]->next = NULL;
 		head->next = stacks[0];
+		stacks[0]->prev = head;
 		stacks[0] = save;
 	}
 	ft_putstr_fd("ra\n", 1);
@@ -48,6 +49,7 @@ void	rb(t_stack **stacks)
 			head = head->next;
 		stacks[1]->next = NULL;
 		head->next = stacks[1];
+		stacks[1]->prev = head;
 		stacks[1] = save;
 	}
 	ft_putstr_fd("rb\n", 1);
@@ -67,6 +69,7 @@ void	rr(t_stack **stacks)
 			head = head->next;
 		stacks[0]->next = NULL;
 		head->next = stacks[0];
+		stacks[0]->prev = head;
 		stacks[0] = save;
 	}
 	if (stacks[1] && stacks[1]->next)
@@ -77,6 +80,7 @@ void	rr(t_stack **stacks)
 			head = head->next;
 		stacks[1]->next = NULL;
 		head->next = stacks[1];
+		stacks[1]->prev = head;
 		stacks[1] = save;
 	}
 	ft_putstr_fd("rr\n", 1);

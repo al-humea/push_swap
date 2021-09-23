@@ -20,6 +20,7 @@ typedef struct s_stack
 {
 	int				nbr;
 	struct s_stack	*next;
+	struct s_stack	*prev;
 }	t_stack;
 
 /*While testing*/
@@ -46,6 +47,6 @@ void		pa(t_stack **stacks);
 void		pb(t_stack **stacks);
 
 /*Algo*/
-void		bubble_sort(t_stack **stacks, int med);
+void		insert(t_stack ** stacks, int med, int mina);
 void		sort(t_stack **stacks, int nbr);
 #endif

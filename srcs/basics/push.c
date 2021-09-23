@@ -6,7 +6,7 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 19:05:41 by al-humea          #+#    #+#             */
-/*   Updated: 2021/09/18 19:30:51 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/09/23 20:02:17 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	pa(t_stack **stacks)
 	{
 		save = stacks[1];
 		stacks[1] = stacks[1]->next;
+		stacks[1]->prev = NULL;
 		save->next = stacks[0];
 		stacks[0] = save;
 	}
@@ -34,6 +35,7 @@ void	pb(t_stack **stacks)
 	{
 		save = stacks[0];
 		stacks[0] = stacks[0]->next;
+		stacks[0]->prev = NULL;
 		save->next = stacks[1];
 		stacks[1] = save;
 	}

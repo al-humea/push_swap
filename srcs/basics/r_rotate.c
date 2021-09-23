@@ -6,7 +6,7 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 14:43:18 by al-humea          #+#    #+#             */
-/*   Updated: 2021/09/18 19:35:06 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/09/23 20:02:21 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	rra(t_stack **stacks)
 		save = head;
 		head = head->next;
 		head->next = stacks[0];
+		head->prev = NULL;
 		save->next = NULL;
 		stacks[0] = head;
 	}
@@ -45,6 +46,7 @@ void	rrb(t_stack **stacks)
 		save = head;
 		head = head->next;
 		head->next = stacks[1];
+		head->prev = NULL;
 		save->next = NULL;
 		stacks[1] = head;
 	}
@@ -65,6 +67,7 @@ void	rrr2(t_stack **stacks)
 		save = head;
 		head = head->next;
 		head->next = stacks[1];
+		head->prev = NULL;
 		save->next = NULL;
 		stacks[1] = head;
 	}
@@ -84,6 +87,7 @@ void	rrr(t_stack **stacks)
 		save = head;
 		head = head->next;
 		head->next = stacks[0];
+		head->prev = NULL;
 		save->next = NULL;
 		stacks[0] = head;
 	}

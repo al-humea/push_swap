@@ -6,7 +6,7 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 19:16:01 by al-humea          #+#    #+#             */
-/*   Updated: 2021/09/20 18:20:58 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/09/23 20:32:35 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,10 @@ void	sort(t_stack **stacks, int nbr)
 		med = median(stacks, nbr);
 		divide(stacks, med, nbr);
 		printf("median=%d\n", (int)med);
-		bubble_sort(stacks, med);
-		/*
-		conquer(stacks);*/
+		insert(stacks, med, stackmin(stacks[0]));
+			printf("A\n");
+		/*Sorts both stacks*/
+		/*conquer(stacks);*/
 	}
 	if (nbr == 2 && stacks[0]->nbr > stacks[0]->next->nbr)
 		sa(stacks);

@@ -26,7 +26,10 @@ void	free_stack(t_stack *stack)
 	return ;
 }
 
-/*USEFUL STACK DISPLAY*/
+/*
+**USEFUL STACK DISPLAY
+** MAKE MORE READABLE
+*/
 void	disp_stack(t_stack **stack)
 {
 	int		i;
@@ -41,7 +44,7 @@ void	disp_stack(t_stack **stack)
 	{
 		head = stack[i];
 		ft_putstr_fd("_________________\n", 1);
-		printf("stack[%c] :\n", array[i]);
+		printf("stack[%c] :	||	stack[", array[i]);
 		while (head)
 		{
 			printf("%d\n", head->nbr);
@@ -67,6 +70,7 @@ void	duplicates(t_stack	*stack)
 			if (cmp->nbr == cur->nbr)
 			{
 				printf("dup=%d\n", cur->nbr);
+				free_stack(stack);
 				display_error();
 			}
 			cmp = cmp->next;
@@ -88,6 +92,7 @@ t_stack	*valid_av(int ac, char **av)
 	if (!a)
 		exit(EXIT_FAILURE);
 	a->nbr = (int)ft_atops(av[i]);
+	a->prev = NULL;
 	cur_a = a;
 	i++;
 	while (i <= (ac - 1))
@@ -95,6 +100,7 @@ t_stack	*valid_av(int ac, char **av)
 		cur_a->next = malloc(sizeof(t_stack));
 		if (!cur_a->next)
 			exit(EXIT_FAILURE);
+		cur_a->next->prev = cur_a;
 		cur_a = cur_a->next;
 		cur_a->nbr = (int)ft_atops(av[i]);
 		i++;
@@ -119,6 +125,7 @@ int	main(int ac, char **av)
 	stacks[2] = NULL;
 	duplicates(stacks[0]);
 	sort(stacks, ac - 1);
+	printf("A\n");
 	disp_stack(stacks);
 	free_stack(stacks[0]);
 	free_stack(stacks[1]);

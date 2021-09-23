@@ -21,6 +21,7 @@ void	sa(t_stack **stacks)
 	{
 		head = stacks[0]->next;
 		stacks[0]->next = stacks[0]->next->next;
+		stacks[0]->prev = head;
 		head->next = stacks[0];
 		stacks[0] = head;
 	}
@@ -37,6 +38,7 @@ void	sb(t_stack **stacks)
 	{
 		head = stacks[1]->next;
 		stacks[1]->next = stacks[1]->next->next;
+		stacks[1]->prev = head;
 		head->next = stacks[1];
 		stacks[1] = head;
 	}
@@ -53,6 +55,7 @@ void	ss(t_stack **stacks)
 	{
 		head = stacks[0]->next;
 		stacks[0]->next = stacks[0]->next->next;
+		stacks[0]->prev = head;
 		head->next = stacks[0];
 		stacks[0] = head;
 	}
@@ -60,6 +63,7 @@ void	ss(t_stack **stacks)
 	{
 		head = stacks[1]->next;
 		stacks[1]->next = stacks[1]->next->next;
+		stacks[1]->prev = head;
 		head->next = stacks[1];
 		stacks[1] = head;
 	}

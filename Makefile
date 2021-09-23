@@ -22,7 +22,7 @@ UTILS=		./utils/display_error.c\
 
 SRC=		./srcs/push_swap.c\
 			./srcs/sort.c\
-			./srcs/bubble.c\
+			./srcs/insert.c\
 			./srcs/basics/swap.c\
 			./srcs/basics/rotate.c\
 			./srcs/basics/r_rotate.c\
@@ -31,7 +31,6 @@ SRC=		./srcs/push_swap.c\
 NAME= push_swap
 
 CFLAGS=		-Wall -Wextra -Werror
-
 
 RM=			rm -f
 
