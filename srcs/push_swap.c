@@ -44,10 +44,10 @@ void	disp_stack(t_stack **stack)
 	{
 		head = stack[i];
 		ft_putstr_fd("_________________\n", 1);
-		printf("stack[%c] :	||	stack[", array[i]);
+		printf("stack[%c]:\n", array[i]);
 		while (head)
 		{
-			printf("%d\n", head->nbr);
+			printf("[%d]\n", head->nbr);
 			head = head->next;
 		}
 		ft_putstr_fd("_________________\n", 1);
@@ -125,7 +125,6 @@ int	main(int ac, char **av)
 	stacks[2] = NULL;
 	duplicates(stacks[0]);
 	sort(stacks, ac - 1);
-	printf("A\n");
 	disp_stack(stacks);
 	free_stack(stacks[0]);
 	free_stack(stacks[1]);

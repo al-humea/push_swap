@@ -47,6 +47,6 @@ void		pa(t_stack **stacks);
 void		pb(t_stack **stacks);
 
 /*Algo*/
-void		insert(t_stack ** stacks, int med, int mina);
+void		insert(t_stack **stacks, int med, int mina);
 void		sort(t_stack **stacks, int nbr);
 #endif

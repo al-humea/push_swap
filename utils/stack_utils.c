@@ -6,7 +6,7 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 11:07:25 by al-humea          #+#    #+#             */
-/*   Updated: 2021/09/22 15:51:11 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/09/24 10:46:17 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	stackmin(t_stack *stack)
 {
-	int min;
+	int	min;
 
 	min = stack->nbr;
 	while (stack)

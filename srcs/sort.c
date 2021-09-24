@@ -6,13 +6,13 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 19:16:01 by al-humea          #+#    #+#             */
-/*   Updated: 2021/09/23 20:32:35 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/09/24 10:48:15 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		divide(t_stack **stacks, int med, int nb)
+void	divide(t_stack **stacks, int med, int nb)
 {
 	int	i;
 
@@ -32,14 +32,15 @@ void		divide(t_stack **stacks, int med, int nb)
 long int	median(t_stack **stacks, int nbr)
 {
 	int			i;
-	long int	lw_nbr, lst_nbr;
+	long int	lw_nbr;
+	long int	lst_nbr;
 	t_stack		*save;
 
 	i = 0;
 	lw_nbr = stacks[0]->nbr;
 	lst_nbr = -2147483648;
 	save = stacks[0];
-	while (i <= (nbr / 2))
+	while (i < (nbr / 2))
 	{
 		while (stacks[0])
 		{
@@ -54,6 +55,7 @@ long int	median(t_stack **stacks, int nbr)
 	}
 	return (lst_nbr);
 }
+
 /*
 ** Searches for the median,
 ** Puts everything beneath median on B stack
@@ -69,9 +71,7 @@ void	sort(t_stack **stacks, int nbr)
 	{
 		med = median(stacks, nbr);
 		divide(stacks, med, nbr);
-		printf("median=%d\n", (int)med);
 		insert(stacks, med, stackmin(stacks[0]));
-			printf("A\n");
 		/*Sorts both stacks*/
 		/*conquer(stacks);*/
 	}
