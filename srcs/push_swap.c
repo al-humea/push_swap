@@ -69,7 +69,6 @@ void	duplicates(t_stack	*stack)
 		{
 			if (cmp->nbr == cur->nbr)
 			{
-				printf("dup=%d\n", cur->nbr);
 				free_stack(stack);
 				display_error();
 			}
@@ -124,8 +123,9 @@ int	main(int ac, char **av)
 	stacks[1] = NULL;
 	stacks[2] = NULL;
 	duplicates(stacks[0]);
+
 	sort(stacks, ac - 1);
-	disp_stack(stacks);
+
 	free_stack(stacks[0]);
 	free_stack(stacks[1]);
 	free(stacks);

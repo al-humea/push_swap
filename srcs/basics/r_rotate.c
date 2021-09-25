@@ -6,91 +6,47 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 14:43:18 by al-humea          #+#    #+#             */
-/*   Updated: 2021/09/23 20:02:21 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/09/25 14:45:29 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	rra(t_stack **stacks)
+void	r_rotate(t_stack **stack)
 {
-	t_stack	*head;
 	t_stack	*save;
 
-	head = stacks[0];
-	if (head && head->next)
+	save = *stack;
+	if (*stack && (*stack)->next)
 	{
-		while (head->next->next)
-			head = head->next;
-		save = head;
-		head = head->next;
-		head->next = stacks[0];
-		head->prev = NULL;
-		save->next = NULL;
-		stacks[0] = head;
+		while ((*stack)->next)
+			*stack = (*stack)->next;
+		save->prev = *stack;
+		(*stack)->prev->next = NULL;
+		(*stack)->prev = NULL;
+		(*stack)->next = save;
 	}
+	return ;
+}
+
+void	rra(t_stack **stacks)
+{
+	r_rotate(&(stacks[0]));
 	ft_putstr_fd("rra\n", 1);
 	return ;
 }
 
 void	rrb(t_stack **stacks)
 {
-	t_stack	*head;
-	t_stack	*save;
-
-	head = stacks[1];
-	if (head && head->next)
-	{
-		while (head->next->next)
-			head = head->next;
-		save = head;
-		head = head->next;
-		head->next = stacks[1];
-		head->prev = NULL;
-		save->next = NULL;
-		stacks[1] = head;
-	}
+	r_rotate(&(stacks[1]));
 	ft_putstr_fd("rrb\n", 1);
-	return ;
-}
-
-void	rrr2(t_stack **stacks)
-{
-	t_stack	*head;
-	t_stack	*save;
-
-	if (stacks[1] && stacks[1]->next)
-	{
-		head = stacks[1];
-		while (head->next->next)
-			head = head->next;
-		save = head;
-		head = head->next;
-		head->next = stacks[1];
-		head->prev = NULL;
-		save->next = NULL;
-		stacks[1] = head;
-	}
 	return ;
 }
 
 void	rrr(t_stack **stacks)
 {
-	t_stack	*head;
-	t_stack	*save;
-
-	if (stacks[0] && stacks[0]->next)
-	{
-		head = stacks[0];
-		while (head->next->next)
-			head = head->next;
-		save = head;
-		head = head->next;
-		head->next = stacks[0];
-		head->prev = NULL;
-		save->next = NULL;
-		stacks[0] = head;
-	}
-	rrr2(stacks);
+	r_rotate(&(stacks[0]));
+	r_rotate(&(stacks[1]));
 	ft_putstr_fd("rrr\n", 1);
+	return ;
 }

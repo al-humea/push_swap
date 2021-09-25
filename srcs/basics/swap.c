@@ -12,65 +12,41 @@
 
 #include "../../includes/push_swap.h"
 
+void	swap(t_stack **stack)
+{
+	t_stack	*save;
+
+	save = NULL;
+	if (*stack && (*stack)->next)
+	{
+		save = (*stack)->next;
+		(*stack)->next = (*stack)->next->next;
+		if ((*stack)->next)
+			(*stack)->next->prev = *stack;
+		(*stack)->prev = save;
+		save->next = *stack;
+		save->prev = NULL;
+		*stack = save;
+	}
+}
 void	sa(t_stack **stacks)
 {
-	t_stack	*head;
-
-	head = NULL;
-	if (stacks[0] && stacks[0]->next)
-	{
-		head = stacks[0]->next;
-		stacks[0]->next = stacks[0]->next->next;
-		stacks[0]->prev = head;
-		head->next = stacks[0];
-		stacks[0] = head;
-		stacks[0]->prev = NULL;
-	}
+	swap(&(stacks[0]));
 	ft_putstr_fd("sa\n", 1);
 	return ;
 }
 
 void	sb(t_stack **stacks)
 {
-	t_stack	*head;
-
-	head = NULL;
-	if (stacks[1] && stacks[1]->next)
-	{
-		head = stacks[1]->next;
-		stacks[1]->next = stacks[1]->next->next;
-		stacks[1]->prev = head;
-		head->next = stacks[1];
-		stacks[1] = head;
-		stacks[1]->prev = NULL;
-	}
+	swap(&(stacks[1]));
 	ft_putstr_fd("sb\n", 1);
 	return ;
 }
 
 void	ss(t_stack **stacks)
 {
-	t_stack	*head;
-
-	head = NULL;
-	if (stacks[0] && stacks[0]->next)
-	{
-		head = stacks[0]->next;
-		stacks[0]->next = stacks[0]->next->next;
-		stacks[0]->prev = head;
-		head->next = stacks[0];
-		stacks[0] = head;
-		stacks[0]->prev = NULL;
-	}
-	if (stacks[1] && stacks[1]->next)
-	{
-		head = stacks[1]->next;
-		stacks[1]->next = stacks[1]->next->next;
-		stacks[1]->prev = head;
-		head->next = stacks[1];
-		stacks[1] = head;
-		stacks[1]->prev = NULL;
-	}
+	swap(&(stacks[0]));
+	swap(&(stacks[1]));
 	ft_putstr_fd("ss\n", 1);
 	return ;
 }
